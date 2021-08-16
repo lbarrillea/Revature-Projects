@@ -433,7 +433,7 @@ public static double moneyconvert(double unit1, double unit2) {
 			}
 		break;
 		case 7:
-			System.out.println("The exchange rate for South African Rand");
+			System.out.println("You have chosen South African Rand");
 			System.out.println("Please enter number of Rand");
 			int inputnumprand = scan.nextInt();
 			System.out.println(inputnumprand+", Rand");
@@ -616,7 +616,7 @@ public static double moneyconvert(double unit1, double unit2) {
 			}
 		break;
 		case 11:
-			System.out.println("You have chosen New Republic Credits is 0.47619");
+			System.out.println("You have chosen New Republic Credits");
 			System.out.println("Please enter number of credits");
 			int inputnumcredit = scan.nextInt();
 			System.out.println(inputnumcredit+", Gold Dragons");
