@@ -1,0 +1,695 @@
+package main;
+
+import java.io.InputStream;
+import java.util.*;
+import java.util.Scanner;
+
+public class Converter {
+	
+static String a;
+String input;
+double amount;
+static boolean closeapp = false;
+static boolean previous = false;
+
+// gives ending program message
+	static void ending() {
+		System.out.println("End of Application");
+	}
+	
+//quit reminder
+	static void quitm() {
+		System.out.println("press q to go to previous menu");
+	}
+	
+//conversion equation
+public static double moneyconvert(double unit1, double unit2) {
+	double conversion = unit1*unit2 ;
+	return conversion;
+		
+}
+
+//welcome message
+	static void welcomem() {
+		System.out.println("Welcome to the Currency Exchange hub");
+
+	}
+	
+	// main menu display
+	static void convertermenu() {
+	System.out.println("Please select an option below to select currency");
+	System.out.println("Press 1 for American Dollars");
+	System.out.println("Press 2 for British Pounds");
+	System.out.println("Press 3 for Mexican Pesos");
+	System.out.println("Press 4 for Chinese Yuan");
+	System.out.println("Press 5 for Indian Rupee");
+	System.out.println("Press 6 for Russian Rubles");
+	System.out.println("Press 7 for South African Rand");
+	System.out.println("Press 8 for Japanese Yen");
+	System.out.println("Press 9 for Gondorian Gold Dragons");
+	System.out.println("Press 11 for New Republic Credits");
+	System.out.println("Press 10 to Exit");
+	}
+
+	
+	public static void main(String[] args) {
+	welcomem();
+	
+	while (!closeapp) {
+		convertermenu();
+		Scanner scan = new Scanner(System.in);
+		int menuselection = scan.nextInt();
+		
+		switch (menuselection) {
+		case 1:
+			System.out.println("You have chosen American Dollars");
+			System.out.println("Choose the amount of Dollars to change");
+			int inputnuma = scan.nextInt();
+			
+			while(!previous) {
+				System.out.println(inputnuma+", American Dollars");
+				System.out.println("next choose the currency you wish to change to");
+				System.out.println("Press 1 for British Pounds");
+				System.out.println("Press 2 for Mexican Pesos");
+				System.out.println("Press 3 for Chinese Yuan");
+				System.out.println("Press 4 for Indian Rupee");
+				System.out.println("Press 5 for Russian Rubles");
+				System.out.println("Press 6 for South African Rand");
+				System.out.println("Press 7 for Japanese Yen");
+				System.out.println("Press 8 for Gondorian Gold Dragons");
+				System.out.println("Press 9 for New Republic Credits");
+				System.out.println("press 10 to go to previous menu");
+				
+				menuselection = scan.nextInt();
+				if(menuselection==1) {
+					System.out.println("British Pounds: "+ moneyconvert(0.7, inputnuma));
+					break;
+				}
+				if(menuselection==2) {
+					System.out.println("Mexican Pesos: "+moneyconvert(19.88, inputnuma));
+					break;
+				}
+				if(menuselection==3) {
+					System.out.println("Chinese Yuan: "+moneyconvert(6.48, inputnuma));
+					break;
+				}
+				if(menuselection==4) {
+					System.out.println("Indian Rupees: "+moneyconvert(74.22, inputnuma));
+					break;
+				}
+				if(menuselection==5) {
+					System.out.println("Russian Rubles:  "+moneyconvert(73.31, inputnuma));
+					break;
+				}
+				if(menuselection==6) {
+					System.out.println("South African Rand: "+moneyconvert(14.73, inputnuma));
+					previous= true;
+				}
+				if(menuselection==7) {
+					System.out.println("Japanese Yen: "+moneyconvert(109.59, inputnuma));
+					previous= true;
+				}
+				if(menuselection==8) {
+					System.out.println("Gondorian Gold Dragons: "+ moneyconvert(0.0032154, inputnuma));
+					break;
+				}
+				if(menuselection==9) {
+					System.out.println("New Republic Credits: "+ moneyconvert(0.47619,inputnuma));
+					break;
+				}
+				if(menuselection==10){
+					previous = true;
+				}
+					else if (menuselection <=0) {
+					System.out.println("please input a valid amount");
+				}
+			}break;
+	
+		case 2:
+			System.out.println("You have chosen British Pounds");
+		System.out.println("Choose the amount of Pounds to change");
+		int inputnump = scan.nextInt();
+		
+		while(!previous) {
+			System.out.println(inputnump+", British Pounds");
+			System.out.println("next choose the currency you wish to change to");
+			System.out.println("Press 1 for American Dollars");
+			System.out.println("Press 2 for Mexican Pesos");
+			System.out.println("Press 3 for Chinese Yuan");
+			System.out.println("Press 4 for Indian Rupee");
+			System.out.println("Press 5 for Russian Rubles");
+			System.out.println("Press 6 for South African Rand");
+			System.out.println("Press 7 for Japanese Yen");
+			System.out.println("Press 8 for Gondorian Gold Dragons");
+			System.out.println("Press 9 for New Republic Credits");
+			System.out.println("press 10 to go to previous menu");
+			
+			menuselection = scan.nextInt();
+			if(menuselection==1) {
+				System.out.println("American Dollars: "+ moneyconvert(1.428571, inputnump));
+				break;
+			}
+			if(menuselection==2) {
+				System.out.println("Mexican Pesos: "+moneyconvert(19.88, inputnump/0.7));
+				break;
+			}
+			if(menuselection==3) {
+				System.out.println("Chinese Yuan: "+moneyconvert(6.48, inputnump/0.7));
+				break;
+			}
+			if(menuselection==4) {
+				System.out.println("Indian Rupees: "+moneyconvert(74.22, inputnump/0.7));
+				break;
+			}
+			if(menuselection==5) {
+				System.out.println("Russian Rubles:  "+moneyconvert(73.31, inputnump/0.7));
+				break;
+			}
+			if(menuselection==6) {
+				System.out.println("South African Rand: "+moneyconvert(14.73, inputnump/0.7));
+				break;
+			}
+			if(menuselection==7) {
+				System.out.println("Japanese Yen: "+moneyconvert(109.59, inputnump/0.7));
+				break;
+			}
+			if(menuselection==8) {
+				System.out.println("Gondorian Gold Dragons: "+ moneyconvert(0.0032154, inputnump/0.7));
+				break;
+			}
+			if(menuselection==9) {
+				System.out.println("New Republic Credits: "+ moneyconvert(0.47619, inputnump/0.7));
+				break;
+			}
+			if(menuselection==10){
+				previous = true;
+			}
+				else if (menuselection <=0) {
+				System.out.println("please input a valid amount");
+			}
+		}break;
+		case 3:
+			System.out.println("You have chosen Mexican Pesos");
+			System.out.println("Please enter number of Pesos");
+			int inputnumpe = scan.nextInt();
+			System.out.println(inputnumpe+", Mexican Pesos");
+			System.out.println("next choose the currency you wish to change to");
+			System.out.println("Press 1 for American Dollars");
+			System.out.println("Press 2 for British Pounds");
+			System.out.println("Press 3 for Chinese Yuan");
+			System.out.println("Press 4 for Indian Rupee");
+			System.out.println("Press 5 for Russian Rubles");
+			System.out.println("Press 6 for South African Rand");
+			System.out.println("Press 7 for Japanese Yen");
+			System.out.println("Press 8 for Gondorian Gold Dragons");
+			System.out.println("Press 9 for New Republic Credits");
+			System.out.println("press 10 to go to previous menu");
+			
+			menuselection = scan.nextInt();
+			if(menuselection==1) {
+				System.out.println("American Dollars: "+ moneyconvert(19.88, inputnumpe));
+				break;
+			}
+			if(menuselection==2) {
+				System.out.println("British Pounds: "+moneyconvert(0.7, inputnumpe/19.88));
+				break;
+			}
+			if(menuselection==3) {
+				System.out.println("Chinese Yuan: "+moneyconvert(6.48, inputnumpe/19.88));
+				break;
+			}
+			if(menuselection==4) {
+				System.out.println("Indian Rupees: "+moneyconvert(74.22, inputnumpe/19.88));
+				break;
+			}
+			if(menuselection==5) {
+				System.out.println("Russian Rubles:  "+moneyconvert(73.31, inputnumpe/19.88));
+				break;
+			}
+			if(menuselection==6) {
+				System.out.println("South African Rand: "+moneyconvert(14.73, inputnumpe/19.88));
+				break;
+			}
+			if(menuselection==7) {
+				System.out.println("Japanese Yen: "+moneyconvert(109.59, inputnumpe/19.88));
+				break;
+			}
+			if(menuselection==8) {
+				System.out.println("Gondorian Gold Dragons: "+ moneyconvert(0.0032154, inputnumpe/19.88));
+				break;
+			}
+			if(menuselection==9) {
+				System.out.println("New Republic Credits: "+ moneyconvert(0.47619, inputnumpe/19.88));
+				break;
+			}
+			if(menuselection==10){
+				previous = true;
+			}
+				else if (menuselection <=0) {
+				System.out.println("please input a valid amount");
+			}
+		break;
+		case 4:
+			System.out.println("You have chosen Chinese Yuan");
+			System.out.println("Please enter number of Yuan");
+			int inputnumpc = scan.nextInt();
+			System.out.println(inputnumpc+", Yuan");
+			System.out.println("next choose the currency you wish to change to");
+			System.out.println("Press 1 for American Dollars");
+			System.out.println("Press 2 for British Pounds");
+			System.out.println("Press 3 for Mexican Pesos");
+			System.out.println("Press 4 for Indian Rupee");
+			System.out.println("Press 5 for Russian Rubles");
+			System.out.println("Press 6 for South African Rand");
+			System.out.println("Press 7 for Japanese Yen");
+			System.out.println("Press 8 for Gondorian Gold Dragons");
+			System.out.println("Press 9 for New Republic Credits");
+			System.out.println("press 10 to go to previous menu");
+			
+			menuselection = scan.nextInt();
+			if(menuselection==1) {
+				System.out.println("American Dollars: "+ moneyconvert( 6.48, inputnumpc));
+				break;
+			}
+			if(menuselection==2) {
+				System.out.println("British Pounds: "+moneyconvert(0.7, inputnumpc/6.48));
+				break;
+			}
+			if(menuselection==3) {
+				System.out.println("Mexican Pesos: "+moneyconvert(19.88, inputnumpc/6.488));
+				break;
+			}
+			if(menuselection==4) {
+				System.out.println("Indian Rupees: "+moneyconvert(74.22, inputnumpc/6.48));
+				break;
+			}
+			if(menuselection==5) {
+				System.out.println("Russian Rubles:  "+moneyconvert(73.31, inputnumpc/6.48));
+				break;
+			}
+			if(menuselection==6) {
+				System.out.println("South African Rand: "+moneyconvert(14.73, inputnumpc/6.48));
+				break;
+			}
+			if(menuselection==7) {
+				System.out.println("Japanese Yen: "+moneyconvert(109.59, inputnumpc/6.48));
+				break;
+			}
+			if(menuselection==8) {
+				System.out.println("Gondorian Gold Dragons: "+ moneyconvert(0.0032154, inputnumpc/6.48));
+				break;
+			}
+			if(menuselection==9) {
+				System.out.println("New Republic Credits: "+ moneyconvert(0.47619, inputnumpc/6.48));
+				break;
+			}
+			if(menuselection==10){
+				previous = true;
+			}
+				else if (menuselection <=0) {
+				System.out.println("please input a valid amount");
+			}
+		break;
+		case 5:
+			System.out.println("You have chosen Indian Rupees");
+			System.out.println("Please enter number of Rupees");
+			int inputnumpi = scan.nextInt();
+			System.out.println(inputnumpi+", Rupees");
+			System.out.println("next choose the currency you wish to change to");
+			System.out.println("Press 1 for American Dollars");
+			System.out.println("Press 2 for British Pounds");
+			System.out.println("Press 3 for Mexican Pesos");
+			System.out.println("Press 4 for Chinese Yuan");
+			System.out.println("Press 5 for Russian Rubles");
+			System.out.println("Press 6 for South African Rand");
+			System.out.println("Press 7 for Japanese Yen");
+			System.out.println("Press 8 for Gondorian Gold Dragons");
+			System.out.println("Press 9 for New Republic Credits");
+			System.out.println("press 10 to go to previous menu");
+			
+			menuselection = scan.nextInt();
+			if(menuselection==1) {
+				System.out.println("American Dollars: "+ moneyconvert( 74.22, inputnumpi));
+				break;
+			}
+			if(menuselection==2) {
+				System.out.println("British Pounds: "+moneyconvert(0.7, inputnumpi/74.22));
+				break;
+			}
+			if(menuselection==3) {
+				System.out.println("Mexican Pesos: "+moneyconvert(19.88, inputnumpi/74.22));
+				break;
+			}
+			if(menuselection==4) {
+				System.out.println("Chinese Yuan: "+moneyconvert(6.48, inputnumpi/74.22));
+				break;
+			}
+			if(menuselection==5) {
+				System.out.println("Russian Rubles:  "+moneyconvert(73.31, inputnumpi/74.22));
+				break;
+			}
+			if(menuselection==6) {
+				System.out.println("South African Rand: "+moneyconvert(14.73, inputnumpi/74.22));
+				break;
+			}
+			if(menuselection==7) {
+				System.out.println("Japanese Yen: "+moneyconvert(109.59, inputnumpi/74.22));
+				break;
+			}
+			if(menuselection==8) {
+				System.out.println("Gondorian Gold Dragons: "+ moneyconvert(0.0032154, inputnumpi/74.22));
+				break;
+			}
+			if(menuselection==9) {
+				System.out.println("New Republic Credits: "+ moneyconvert(0.47619, inputnumpi/74.22));
+				break;
+			}
+			if(menuselection==10){
+				previous = true;
+			}
+				else if (menuselection <=0) {
+				System.out.println("please input a valid amount");
+			}
+		break;
+		case 6:
+			System.out.println("You have chosen Russian Rubles");
+			System.out.println("Please enter number of Rubles");
+			int inputnumprub = scan.nextInt();
+			System.out.println(inputnumprub+", Rubles");
+			System.out.println("next choose the currency you wish to change to");
+			System.out.println("Press 1 for American Dollars");
+			System.out.println("Press 2 for British Pounds");
+			System.out.println("Press 3 for Mexican Pesos");
+			System.out.println("Press 4 for Chinese Yuan");
+			System.out.println("Press 5 for Indian Rupees");
+			System.out.println("Press 6 for South African Rand");
+			System.out.println("Press 7 for Japanese Yen");
+			System.out.println("Press 8 for Gondorian Gold Dragons");
+			System.out.println("Press 9 for New Republic Credits");
+			System.out.println("press 10 to go to previous menu");
+			
+			menuselection = scan.nextInt();
+			if(menuselection==1) {
+				System.out.println("American Dollars: "+ moneyconvert( 73.31, inputnumprub));
+				break;
+			}
+			if(menuselection==2) {
+				System.out.println("British Pounds: "+moneyconvert(0.7, inputnumprub/73.31));
+				break;
+			}
+			if(menuselection==3) {
+				System.out.println("Mexican Pesos: "+moneyconvert(19.88, inputnumprub/73.31));
+				break;
+			}
+			if(menuselection==4) {
+				System.out.println("Chinese Yuan: "+moneyconvert(6.48, inputnumprub/73.31));
+				break;
+			}
+			if(menuselection==5) {
+				System.out.println("Indian rupees:  "+moneyconvert(74.22, inputnumprub/73.31));
+				break;
+			}
+			if(menuselection==6) {
+				System.out.println("South African Rand: "+moneyconvert(14.73, inputnumprub/73.31));
+				break;
+			}
+			if(menuselection==7) {
+				System.out.println("Japanese Yen: "+moneyconvert(109.59, inputnumprub/73.31));
+				break;
+			}
+			if(menuselection==8) {
+				System.out.println("Gondorian Gold Dragons: "+ moneyconvert(0.0032154, inputnumprub/73.31));
+				break;
+			}
+			if(menuselection==9) {
+				System.out.println("New Republic Credits: "+ moneyconvert(0.47619, inputnumprub/73.31));
+				break;
+			}
+			if(menuselection==10){
+				previous = true;
+			}
+				else if (menuselection <=0) {
+				System.out.println("please input a valid amount");
+			}
+		break;
+		case 7:
+			System.out.println("The exchange rate for South African Rand");
+			System.out.println("Please enter number of Rand");
+			int inputnumprand = scan.nextInt();
+			System.out.println(inputnumprand+", Rand");
+			System.out.println("next choose the currency you wish to change to");
+			System.out.println("Press 1 for American Dollars");
+			System.out.println("Press 2 for British Pounds");
+			System.out.println("Press 3 for Mexican Pesos");
+			System.out.println("Press 4 for Chinese Yuan");
+			System.out.println("Press 5 for Indian Rupees");
+			System.out.println("Press 6 for Russian Rubles");
+			System.out.println("Press 7 for Japanese Yen");
+			System.out.println("Press 8 for Gondorian Gold Dragons");
+			System.out.println("Press 9 for New Republic Credits");
+			System.out.println("press 10 to go to previous menu");
+			
+			menuselection = scan.nextInt();
+			if(menuselection==1) {
+				System.out.println("American Dollars: "+ moneyconvert( 14.73, inputnumprand));
+				break;
+			}
+			if(menuselection==2) {
+				System.out.println("British Pounds: "+moneyconvert(0.7, inputnumprand/14.73));
+				break;
+			}
+			if(menuselection==3) {
+				System.out.println("Mexican Pesos: "+moneyconvert(19.88, inputnumprand/14.73));
+				break;
+			}
+			if(menuselection==4) {
+				System.out.println("Chinese Yuan: "+moneyconvert(6.48, inputnumprand/14.73));
+				break;
+			}
+			if(menuselection==5) {
+				System.out.println("Indian rupees:  "+moneyconvert(74.22, inputnumprand/14.73));
+				break;
+			}
+			if(menuselection==6) {
+				System.out.println("Russian Rubles: "+moneyconvert(73.31, inputnumprand/14.73));
+				break;
+			}
+			if(menuselection==7) {
+				System.out.println("Japanese Yen: "+moneyconvert(109.59, inputnumprand/14.73));
+				break;
+			}
+			if(menuselection==8) {
+				System.out.println("Gondorian Gold Dragons: "+ moneyconvert(0.0032154, inputnumprand/14.73));
+				break;
+			}
+			if(menuselection==9) {
+				System.out.println("New Republic Credits: "+ moneyconvert(0.47619, inputnumprand/14.73));
+				break;
+			}
+			if(menuselection==10){
+				previous = true;
+			}
+				else if (menuselection <=0) {
+				System.out.println("please input a valid amount");
+			}
+		break;
+		case 8:
+			System.out.println("You have chosen Japaneses Yen");
+			System.out.println("Please enter number of Yen");
+			int inputnumpryen = scan.nextInt();
+			System.out.println(inputnumpryen+", Yen");
+			System.out.println("next choose the currency you wish to change to");
+			System.out.println("Press 1 for American Dollars");
+			System.out.println("Press 2 for British Pounds");
+			System.out.println("Press 3 for Mexican Pesos");
+			System.out.println("Press 4 for Chinese Yuan");
+			System.out.println("Press 5 for Indian Rupees");
+			System.out.println("Press 6 for Russian Rubles");
+			System.out.println("Press 7 for South African Rand");
+			System.out.println("Press 8 for Gondorian Gold Dragons");
+			System.out.println("Press 9 for New Republic Credits");
+			System.out.println("press 10 to go to previous menu");
+			
+			menuselection = scan.nextInt();
+			if(menuselection==1) {
+				System.out.println("American Dollars: "+ moneyconvert( 109.59, inputnumpryen));
+				break;
+			}
+			if(menuselection==2) {
+				System.out.println("British Pounds: "+moneyconvert(0.7, inputnumpryen/109.59));
+				break;
+			}
+			if(menuselection==3) {
+				System.out.println("Mexican Pesos: "+moneyconvert(19.88, inputnumpryen/109.59));
+				break;
+			}
+			if(menuselection==4) {
+				System.out.println("Chinese Yuan: "+moneyconvert(6.48, inputnumpryen/109.59));
+				break;
+			}
+			if(menuselection==5) {
+				System.out.println("Indian rupees:  "+moneyconvert(74.22, inputnumpryen/109.59));
+				break;
+			}
+			if(menuselection==6) {
+				System.out.println("Russian Rubles: "+moneyconvert(73.31, inputnumpryen/109.59));
+				break;
+			}
+			if(menuselection==7) {
+				System.out.println("South African Rand: "+moneyconvert(14.73, inputnumpryen/109.59));
+				break;
+			}
+			if(menuselection==8) {
+				System.out.println("Gondorian Gold Dragons: "+ moneyconvert(0.0032154, inputnumpryen/109.59));
+				break;
+			}
+			if(menuselection==9) {
+				System.out.println("New Republic Credits: "+ moneyconvert(0.47619, inputnumpryen/109.59));
+				break;
+			}
+			if(menuselection==10){
+				previous = true;
+			}
+				else if (menuselection <=0) {
+				System.out.println("please input a valid amount");
+			}
+		break;
+		case 9:
+			System.out.println("You have chosen Gondorian Gold Dragons");
+			System.out.println("Please enter number of Dragons");
+			int inputnumpgd = scan.nextInt();
+			System.out.println(inputnumpgd+", Gold Dragons");
+			System.out.println("next choose the currency you wish to change to");
+			System.out.println("Press 1 for American Dollars");
+			System.out.println("Press 2 for British Pounds");
+			System.out.println("Press 3 for Mexican Pesos");
+			System.out.println("Press 4 for Chinese Yuan");
+			System.out.println("Press 5 for Indian Rupees");
+			System.out.println("Press 6 for Russian Rubles");
+			System.out.println("Press 7 for South African Rand");
+			System.out.println("Press 8 for Japanese Yen");
+			System.out.println("Press 9 for New Republic Credits");
+			System.out.println("press 10 to go to previous menu");
+			
+			menuselection = scan.nextInt();
+			if(menuselection==1) {
+				System.out.println("American Dollars: "+ moneyconvert( 1/0.0032154, inputnumpgd));
+				break;
+			}
+			if(menuselection==2) {
+				System.out.println("British Pounds: "+moneyconvert(0.7, inputnumpgd/0.0032154));
+				break;
+			}
+			if(menuselection==3) {
+				System.out.println("Mexican Pesos: "+moneyconvert(19.88, inputnumpgd/0.0032154));
+				break;
+			}
+			if(menuselection==4) {
+				System.out.println("Chinese Yuan: "+moneyconvert(6.48, inputnumpgd/0.0032154));
+				break;
+			}
+			if(menuselection==5) {
+				System.out.println("Indian rupees:  "+moneyconvert(74.22, inputnumpgd/0.0032154));
+				break;
+			}
+			if(menuselection==6) {
+				System.out.println("Russian Rubles: "+moneyconvert(73.31, inputnumpgd/0.0032154));
+				break;
+			}
+			if(menuselection==7) {
+				System.out.println("South African Rand: "+moneyconvert(14.73, inputnumpgd/0.0032154));
+				break;
+			}
+			if(menuselection==8) {
+				System.out.println("Japanese Yen: "+ moneyconvert(109.59, inputnumpgd/0.0032154));
+				break;
+			}
+			if(menuselection==9) {
+				System.out.println("New Republic Credits: "+ moneyconvert(0.47619, inputnumpgd/0.0032154));
+				break;
+			}
+			if(menuselection==10){
+				previous = true;
+			}
+				else if (menuselection <=0) {
+				System.out.println("please input a valid amount");
+			}
+		break;
+		case 11:
+			System.out.println("You have chosen New Republic Credits is 0.47619");
+			System.out.println("Please enter number of credits");
+			int inputnumcredit = scan.nextInt();
+			System.out.println(inputnumcredit+", Gold Dragons");
+			System.out.println("next choose the currency you wish to change to");
+			System.out.println("Press 1 for American Dollars");
+			System.out.println("Press 2 for British Pounds");
+			System.out.println("Press 3 for Mexican Pesos");
+			System.out.println("Press 4 for Chinese Yuan");
+			System.out.println("Press 5 for Indian Rupees");
+			System.out.println("Press 6 for Russian Rubles");
+			System.out.println("Press 7 for South African Rand");
+			System.out.println("Press 8 for Japanese Yen");
+			System.out.println("Press 9 for Gondorian Gold Dragons");
+			System.out.println("press 10 to go to previous menu");
+			
+			menuselection = scan.nextInt();
+			if(menuselection==1) {
+				System.out.println("American Dollars: "+ moneyconvert( 1/0.47619, inputnumcredit));
+				break;
+			}
+			if(menuselection==2) {
+				System.out.println("British Pounds: "+moneyconvert(0.7, inputnumcredit/0.47619));
+				break;
+			}
+			if(menuselection==3) {
+				System.out.println("Mexican Pesos: "+moneyconvert(19.88, inputnumcredit/0.47619));
+				break;
+			}
+			if(menuselection==4) {
+				System.out.println("Chinese Yuan: "+moneyconvert(6.48, inputnumcredit/0.47619));
+				break;
+			}
+			if(menuselection==5) {
+				System.out.println("Indian rupees:  "+moneyconvert(74.22, inputnumcredit/0.47619));
+				break;
+			}
+			if(menuselection==6) {
+				System.out.println("Russian Rubles: "+moneyconvert(73.31, inputnumcredit/0.47619));
+				break;
+			}
+			if(menuselection==7) {
+				System.out.println("South African Rand: "+moneyconvert(14.73, inputnumcredit/0.47619));
+				break;
+			}
+			if(menuselection==8) {
+				System.out.println("Japanese Yen: "+ moneyconvert(109.59, inputnumcredit/0.47619));
+				break;
+			}
+			if(menuselection==9) {
+				System.out.println("Gondorian Gold Dragons: "+ moneyconvert(0.0032154, inputnumcredit/0.47619));
+				break;
+			}
+			if(menuselection==10){
+				previous = true;
+			}
+				else if (menuselection <=0) {
+				System.out.println("please input a valid amount");
+			}
+		break;
+		case 10:
+				closeapp = true;
+					ending();
+					scan.close();
+				break;
+
+	
+		default:
+				System.out.println("I am sorry that is not an option. Please enter a menu option");
+				break;
+			}
+		}
+	}
+}
+
+	
+
