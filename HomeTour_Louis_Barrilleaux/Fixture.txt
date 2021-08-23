@@ -1,0 +1,26 @@
+package fixtures;
+
+import fixtures.Items;
+
+public abstract class Fixture {
+	
+	private String Name;
+	private String shortDescription;
+	private String longDescription;
+	
+	public Fixture(String Name, String shortDescription, String longDescription) {
+		
+		this.Name = Name;
+		this.shortDescription = shortDescription;
+		this.longDescription = longDescription;
+	}
+	public String getName() {
+		return Name;
+	}
+	public String getshortDescription() {
+		return shortDescription;
+	}
+	public String getlongDescription() {
+		return longDescription;
+	}
+}
