@@ -1,0 +1,44 @@
+CREATE TABLE IF NOT EXISTS accounts
+(
+    customer_id INT,
+    account_id INT AUTO_INCREMENT,
+    balance DECIMAL,
+    CONSTRAINT accounts_pk PRIMARY KEY (account_id),
+    CONSTRAINT customers_accounts_fk FOREIGN KEY (customer_id) REFERENCES customers (customer_id)
+    );
+   
+   Drop TABLE accounts;
+
+INSERT INTO accounts (customer_id, account_id, balance) VALUES (12345678, 1, 8000.25);
+INSERT INTO accounts (customer_id, balance) VALUES (12345678,  8000.25);
+INSERT INTO accounts (customer_id, balance) VALUES (12345678, 876324.02);
+INSERT INTO accounts (customer_id, balance) VALUES (31234567, 78456.12);
+INSERT INTO accounts (customer_id, balance) VALUES (41234567, 400);
+INSERT INTO accounts (customer_id, balance) VALUES (31234567, 400);
+INSERT INTO accounts (customer_id, balance) VALUES (21234567, 28000 );
+
+
+CREATE TABLE IF NOT EXISTS customers
+(
+    customer_id INT,
+    name VARCHAR(200),
+    CONSTRAINT customers_pk PRIMARY KEY (customer_id)
+
+    );
+   
+   INSERT INTO customers VALUES (00700001,'James Bond');
+ 
+
+   INSERT INTO customers VALUES(12345678, 'Buch Nemits');
+   INSERT INTO customers VALUES(21234567, 'Soap McTavish');
+   INSERT INTO customers VALUES(31234567, 'Micheal Angelo');
+   INSERT INTO customers VALUES(41234567, 'James Hollister');
+
+  
+  DROP TABLE customers;
+
+
+
+select * from customers;
+select * from accounts;
+SELECT * FROM accounts, customers;
